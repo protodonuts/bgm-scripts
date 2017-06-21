@@ -71,7 +71,7 @@ if (RegExp(`^${KANJI_MYOUJI}$`).test(name)) { // 全汉字 无空格, 无法分�
     }
 } else if (RegExp(`^${KANJI_MYOUJI}[ 　]*[\u30a0-\u30ff][\u30a0-\u30ff子乃]*$`).test(name)) { // 汉字[空格]片假名
     const myouji = name.match(RegExp(KANJI_MYOUJI))[0];
-    const namae = name.match(/[\u30a0-\u30ff][\u30a0-\u30ff子乃]*/)[0];
+    const namae = name.match(/[\u30a0-\u30ff][\u30a0-\u30ff子乃]*/g).pop();
     if (namaeKana) {
         nameAnchor.innerHTML = getRuby(myouji, myoujiKana) + ' ' + namae;
     } else {
